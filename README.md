@@ -61,7 +61,8 @@ Entidades gubernamentales encargadas de la fiscalización.
 Organizaciones no gubernamentales (ONGs) de medio ambiente.
 Empresas de certificación y validación de prácticas sostenibles.
 Empresas tecnológicas para el hosting y soporte.
-💲 Estructura de Costos
+
+## 💲 Estructura de Costos
 Costos de desarrollo y mantenimiento de la aplicación.
 Costos de servidores y almacenamiento de datos.
 Gastos en marketing y promoción.
