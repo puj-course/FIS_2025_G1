@@ -1,5 +1,7 @@
 # fis_2025_g1
+
 ## ECOTRIBUTARIO🌱
+
 ## 📌 Descripción
 ECOTRIBUTARIO es una aplicación de ingenieria de software enfocada en empresas cuya estrategia de proteccion al medio mediante sea por medio de actividades como: Reciclaje, razonamiento de agua, manejo adecaudo de residuos organicos y no organicos, etc... Cuyas empresas que cumplan con dicho objetivo recibiran descuentos en la declaración de impuestos.
 
