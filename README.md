@@ -79,8 +79,4 @@ de residuos organicos y no organicos, etc... Cuyas empresas que cumplan con dich
 
 
 
-## 🚀 Instalación
-Clona el repositorio e instala las dependencias:
-```sh
-git clone https://github.com/tu-repo/sistema-incentivos
-cd sistema-incentivos
+
