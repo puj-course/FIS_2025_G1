@@ -1,5 +1,5 @@
 
--- Base de Datos: Ecotributario (versión SQLite)
+- Script para SQLite
 
 -- Tabla de Usuarios
 CREATE TABLE IF NOT EXISTS Usuarios (
@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS Reportes (
     FOREIGN KEY (id_incentivo) REFERENCES Incentivos(id_incentivo) ON DELETE CASCADE,
     FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario) ON DELETE CASCADE
 );
+
 
 -- Datos de prueba
 INSERT INTO Usuarios (nombre, email, password, rol) VALUES ('Sarix', 'sarix@ejemplo.com', '1234', 'admin');
