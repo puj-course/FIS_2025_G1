@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="ecotributario.controllers.RegistroController">
+    <children>
+        <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+            <Label text="Crear cuenta" style="-fx-font-size: 18px;"/>
+            <TextField fx:id="txtNombre" promptText="Nombre completo"/>
+            <TextField fx:id="txtEmail" promptText="Correo electrónico"/>
+            <PasswordField fx:id="txtPassword" promptText="Contraseña"/>
+            <ChoiceBox fx:id="choiceRol">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="admin"/>
+                        <String fx:value="empresa"/>
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+            <Button text="Registrarse" onAction="#handleRegistro"/>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="ecotributario.controllers.UsuarioMainController" prefWidth="400" prefHeight="300">
+    <children>
+        <VBox spacing="15" alignment="CENTER" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+            <Label text="¡Bienvenido!" fx:id="lblBienvenida" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+            <Button text="Registrar actividad" prefWidth="200" onAction="#abrirRegistroActividad"/>
+            <Button text="Ver incentivos acumulados" prefWidth="200" onAction="#abrirVistaIncentivos"/>
+            <Button text="Cerrar sesión" prefWidth="200" onAction="#cerrarSesion"/>
+        </VBox>
+    </children>
+</AnchorPane>
