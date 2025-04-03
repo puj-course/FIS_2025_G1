@@ -8,6 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
 
 import java.io.IOException;
 
@@ -23,7 +25,7 @@ public class LoginController {
     private Button loginButton;
 
     @FXML
-    private void handleLogin() {
+    private void handleLogin(ActionEvent event) {
         String email = txtUsuario.getText();
         String password = txtContrasena.getText();
 
@@ -35,8 +37,7 @@ public class LoginController {
         Usuario usuario = UsuarioDAO.autenticar(email, password);
 
         if (usuario != null) {
-            mostrarAlerta("Bienvenido", "Hola " + usuario.getNombre() + " (" + usuario.getRol() + ")");
-            // TODO: aquí podrías redirigir a otra vista
+            abrirVistaPrincipal(event, usuario.getNombre());
         } else {
             mostrarAlerta("Usuario no encontrado", "¿Deseas registrarte?");
             abrirVentanaRegistro();
@@ -57,9 +58,24 @@ public class LoginController {
             Scene scene = new Scene(loader.load(), 400, 350);
             Stage stage = new Stage();
             stage.setTitle("Registro de Usuario");
-            stage.initModality(Modality.APPLICATION_MODAL); // bloquea la ventana anterior
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(scene);
             stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void abrirVistaPrincipal(ActionEvent event, String nombreUsuario) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ecotributario/views/usuario_main.fxml"));
+            Scene scene = new Scene(loader.load());
+            UsuarioMainController controller = loader.getController();
+            controller.setNombreUsuario(nombreUsuario);
+
+            Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -2,8 +2,14 @@ package ecotributario.controllers;
 
 import ecotributario.dao.UsuarioDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+
+import java.io.IOException;
 
 public class RegistroController {
 
@@ -17,27 +23,46 @@ public class RegistroController {
     private PasswordField txtPassword;
 
     @FXML
-    private ChoiceBox<String> choiceRol;
+    private ComboBox<String> cmbRol;
 
     @FXML
-    private void handleRegistro() {
+    private void initialize() {
+        cmbRol.getItems().addAll("admin", "empresa");
+    }
+
+    @FXML
+    private void registrarUsuario() {
         String nombre = txtNombre.getText();
         String email = txtEmail.getText();
         String password = txtPassword.getText();
-        String rol = choiceRol.getValue();
+        String rol = cmbRol.getValue();
 
         if (nombre.isEmpty() || email.isEmpty() || password.isEmpty() || rol == null) {
-            mostrarAlerta("Campos vacíos", "Por favor, llena todos los campos.");
+            mostrarAlerta("Campos incompletos", "Por favor, completa todos los campos.");
             return;
         }
 
         boolean creado = UsuarioDAO.crearUsuario(nombre, email, password, rol);
 
         if (creado) {
-            mostrarAlerta("¡Registro exitoso!", "Ya puedes iniciar sesión.");
-            cerrarVentana(); // opcional: cerrar y volver a login
+            mostrarAlerta("Éxito", "Usuario creado correctamente.");
+            limpiarFormulario();
         } else {
-            mostrarAlerta("Error", "No se pudo crear el usuario. Intenta con otro correo.");
+            mostrarAlerta("Error", "No se pudo registrar el usuario.");
+        }
+    }
+
+    @FXML
+    private void volverAlInicio(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ecotributario/views/inicio.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Inicio - Ecotributario");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -49,8 +74,10 @@ public class RegistroController {
         alert.showAndWait();
     }
 
-    private void cerrarVentana() {
-        Stage stage = (Stage) txtNombre.getScene().getWindow();
-        stage.close();
+    private void limpiarFormulario() {
+        txtNombre.clear();
+        txtEmail.clear();
+        txtPassword.clear();
+        cmbRol.setValue(null);
     }
 }

@@ -3,25 +3,28 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.collections.FXCollections?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="ecotributario.controllers.RegistroController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ecotributario.controllers.RegistroController"
+            prefWidth="400" prefHeight="400">
     <children>
-        <VBox spacing="10" alignment="CENTER" AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
-            <Label text="Crear cuenta" style="-fx-font-size: 18px;"/>
+        <VBox alignment="CENTER" spacing="12"
+              AnchorPane.topAnchor="20.0"
+              AnchorPane.leftAnchor="40.0"
+              AnchorPane.rightAnchor="40.0">
+
+            <Label text="Registro de Usuario" style="-fx-font-size: 18px;"/>
+
             <TextField fx:id="txtNombre" promptText="Nombre completo"/>
             <TextField fx:id="txtEmail" promptText="Correo electrónico"/>
             <PasswordField fx:id="txtPassword" promptText="Contraseña"/>
-            <ChoiceBox fx:id="choiceRol">
-                <items>
-                    <FXCollections fx:factory="observableArrayList">
-                        <String fx:value="admin"/>
-                        <String fx:value="empresa"/>
-                    </FXCollections>
-                </items>
-            </ChoiceBox>
-            <Button text="Registrarse" onAction="#handleRegistro"/>
+
+            <ComboBox fx:id="cmbRol" promptText="Rol"/>
+
+            <HBox spacing="10">
+                <Button text="Registrarse" onAction="#registrarUsuario" prefWidth="150"/>
+                <Button text="Volver" onAction="#volverAlInicio" prefWidth="150"/>
+            </HBox>
         </VBox>
     </children>
 </AnchorPane>

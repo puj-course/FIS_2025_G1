@@ -10,7 +10,7 @@ import java.sql.Connection;
 public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        // Conexión a la base de datos
+        // Verificamos la conexión a la base de datos
         Connection conn = DBConnection.getConnection();
         if (conn != null) {
             System.out.println("✅ Conexión exitosa");
@@ -18,11 +18,10 @@ public class App extends Application {
             System.out.println("❌ Conexión fallida");
         }
 
-        // Cargar vista
-        System.out.println(getClass().getResource("/ecotributario/views/login.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ecotributario/views/login.fxml"));
+        // Cargamos la primera vista (Inicio)
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ecotributario/views/inicio.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 400, 300);
-        stage.setTitle("Ecotributario – Login");
+        stage.setTitle("Ecotributario");
         stage.setScene(scene);
         stage.show();
     }

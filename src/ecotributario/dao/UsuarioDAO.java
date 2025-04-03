@@ -2,14 +2,13 @@ package ecotributario.dao;
 
 import ecotributario.DBConnection;
 import ecotributario.model.Usuario;
+import ecotributario.utils.HashUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UsuarioDAO {
 
+    // Autenticación con contraseña encriptada
     public static Usuario autenticar(String email, String password) {
         String query = "SELECT * FROM Usuarios WHERE email = ? AND password = ?";
 
@@ -17,7 +16,7 @@ public class UsuarioDAO {
              PreparedStatement stmt = conn.prepareStatement(query)) {
 
             stmt.setString(1, email);
-            stmt.setString(2, password);
+            stmt.setString(2, HashUtil.encriptar(password)); // encriptar antes de comparar
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
@@ -34,9 +33,10 @@ public class UsuarioDAO {
             System.err.println("Error al autenticar usuario: " + e.getMessage());
         }
 
-        return null; // usuario no encontrado
+        return null;
     }
 
+    // Registro de usuario con contraseña encriptada
     public static boolean crearUsuario(String nombre, String email, String password, String rol) {
         String query = "INSERT INTO Usuarios (nombre, email, password, rol) VALUES (?, ?, ?, ?)";
 
@@ -45,14 +45,14 @@ public class UsuarioDAO {
 
             stmt.setString(1, nombre);
             stmt.setString(2, email);
-            stmt.setString(3, password);
+            stmt.setString(3, HashUtil.encriptar(password)); // encriptar antes de guardar
             stmt.setString(4, rol);
 
-            int filas = stmt.executeUpdate();
-            return filas > 0;
+            int filasAfectadas = stmt.executeUpdate();
+            return filasAfectadas > 0;
 
         } catch (SQLException e) {
-            System.err.println("❌ Error al crear usuario: " + e.getMessage());
+            System.err.println("Error al crear usuario: " + e.getMessage());
             return false;
         }
     }
