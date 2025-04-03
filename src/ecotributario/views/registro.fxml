@@ -11,20 +11,18 @@
         <VBox alignment="CENTER" spacing="12"
               AnchorPane.topAnchor="20.0"
               AnchorPane.leftAnchor="40.0"
-              AnchorPane.rightAnchor="40.0">
+              AnchorPane.rightAnchor="40.0"
+              AnchorPane.bottomAnchor="20.0">
 
             <Label text="Registro de Usuario" style="-fx-font-size: 18px;"/>
 
             <TextField fx:id="txtNombre" promptText="Nombre completo"/>
-            <TextField fx:id="txtEmail" promptText="Correo electrónico"/>
-            <PasswordField fx:id="txtPassword" promptText="Contraseña"/>
+            <TextField fx:id="txtCorreo" promptText="Correo electrónico"/>
+            <PasswordField fx:id="txtContrasena" promptText="Contraseña"/>
 
-            <ComboBox fx:id="cmbRol" promptText="Rol"/>
+            <ComboBox fx:id="cbTipoUsuario" promptText="Selecciona tipo de usuario"/>
 
-            <HBox spacing="10">
-                <Button text="Registrarse" onAction="#registrarUsuario" prefWidth="150"/>
-                <Button text="Volver" onAction="#volverAlInicio" prefWidth="150"/>
-            </HBox>
+            <Button fx:id="btnRegistrar" text="Registrar" onAction="#handleRegistro" prefWidth="150"/>
         </VBox>
     </children>
 </AnchorPane>

@@ -5,16 +5,17 @@ import java.security.NoSuchAlgorithmException;
 
 public class HashUtil {
 
+    // Encriptar una cadena usando SHA-256
     public static String encriptar(String input) {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = md.digest(input.getBytes());
 
-            // Convertir el array de bytes a hexadecimal
+            // Convertir bytes a hexadecimal
             StringBuilder hexString = new StringBuilder();
             for (byte b : hashBytes) {
-                String hex = Integer.toHexString(0xff & b); // convierte cada byte a hexadecimal
-                if (hex.length() == 1) hexString.append('0'); // agrega un 0 delante si es solo un dígito
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
                 hexString.append(hex);
             }
 
@@ -24,5 +25,11 @@ public class HashUtil {
             e.printStackTrace();
             return null;
         }
+    }
+
+    // Verificar una contraseña ingresada contra su hash
+    public static boolean verificar(String textoPlano, String hashGuardado) {
+        String hashCalculado = encriptar(textoPlano);
+        return hashCalculado != null && hashCalculado.equals(hashGuardado);
     }
 }
