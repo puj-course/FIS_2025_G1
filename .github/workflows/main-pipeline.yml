@@ -1,0 +1,39 @@
+name: Java CI - Ecotributario Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-process:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del código
+      uses: actions/checkout@v3
+
+    - name: Configurar JDK
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Compilar proyecto Java
+      run: |
+        cd Ecotributario/src
+        javac -d ../../out $(find . -name "*.java")
+
+    - name: Ejecutar procesamiento de datos (simulado)
+      run: |
+        echo "Procesando normativa y formularios..."
+        echo "Generando informe..."
+        mkdir -p reportes
+        echo "Informe generado el $(date)" > reportes/informe.txt
+
+    - name: Subir artefactos del informe
+      uses: actions/upload-artifact@v3
+      with:
+        name: informe-final
+        path: reportes/informe.txt
