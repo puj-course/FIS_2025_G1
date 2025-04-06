@@ -20,11 +20,9 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Compilar proyecto Java
-      run: |
-        cd Ecotributario/src
-        javac -d ../../out $(find . -name "*.java")
-
+    - name: Compilar con Maven
+      run: mvn clean compile
+        
     - name: Ejecutar procesamiento de datos (simulado)
       run: |
         echo "Procesando normativa y formularios..."
