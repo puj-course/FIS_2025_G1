@@ -29,11 +29,13 @@ jobs:
       run: |
         echo "Procesando normativa y formularios..."
         echo "Generando informe..."
-        mkdir -p reportes
-        echo "Informe generado el $(date)" > reportes/informe.txt
+        mkdir -p ./reportes
+        echo "Informe generado el $(date)" > ./reportes/informe.txt
 
     - name: Subir artefactos del informe
       uses: actions/upload-artifact@v3
       with:
         name: informe-final
-        path: reportes/informe.txt
+        path: ./reportes/informe.txt
+
+        
