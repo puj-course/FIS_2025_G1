@@ -23,17 +23,18 @@ jobs:
     - name: Compilar con Maven
       run: mvn clean compile
         
-    - name: Ejecutar procesamiento de datos (simulado)
+    - name: Ejecutar procesamiento de datos 
       run: |
         echo "Procesando normativa y formularios..."
         echo "Generando informe..."
         mkdir -p ./reportes
-        echo "Informe generado el $(date)" > ./reportes/informe.txt
+        echo "Informe generado el $(date)" > reportes/informe.txt
+        ls -l reportes
 
     - name: Subir artefactos del informe
       uses: actions/upload-artifact@v3
       with:
         name: informe-final
-        path: ./reportes/informe.txt
+        path: reportes/informe.txt
 
         
