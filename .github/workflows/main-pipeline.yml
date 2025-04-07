@@ -26,8 +26,15 @@ jobs:
     - name: Compilar proyecto Java (sin Maven)
       run: |
         mkdir -p out
-        javac -d out $(find . -name "*.java")
-
+        java_files=$(find src -name "*.java")
+        if [ -z "$java_files" ]; then
+          echo "No se encontraron archivos .java en src/"
+          exit 1
+        else
+          echo " Archivos Java encontrados:"
+          echo "$java_files"
+          javac -d out $java_files
+        fi
     - name: Ejecutar procesamiento de datos
       run: |
         echo "Procesando normativa y formularios..."
