@@ -21,7 +21,9 @@ jobs:
         distribution: 'temurin'
 
     - name: Compilar con Maven
-      run: mvn clean compile
+      run: |
+        mkdir -p out
+        javac -d out $(find Ecotributario/src -name "*.java")
         
     - name: Ejecutar procesamiento de datos 
       run: |
