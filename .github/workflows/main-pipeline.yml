@@ -2,9 +2,9 @@ name: Java CI - Ecotributario Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" , "feature/interfaz-login"]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "feature/interfaz-login" ]
 
 jobs:
   build-and-process:
@@ -30,7 +30,7 @@ jobs:
     - name: Compilar proyecto Java (sin Maven)
       run: |
         mkdir -p out
-        java_files=$(find src -name "*.java")
+        java_files=$(find src/ecotributario -name "*.java")
         if [ -z "$java_files" ]; then
           echo "No se encontraron archivos .java en src/"
           exit 1
