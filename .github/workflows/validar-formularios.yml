@@ -20,15 +20,21 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Compilar proyecto
-      run: mvn compile
-
     - name: Verificar existencia de clases de formularios
       run: |
+        mkdir -p logs
+        log_file=logs/validacion_formularios.log
+        echo "Iniciando validación de formularios: $(date)" > $log_file
         if ls src/main/java/ecotributario/controllers/LoginController.java && \
            ls src/main/java/ecotributario/controllers/RegistroController.java; then
-          echo " Formularios detectados correctamente."
+          echo " Formularios detectados correctamente." | tee -a $log_file
         else
-          echo "Formularios no encontrados. Revisa la estructura del proyecto."
+          echo "Formularios no encontrados. Revisa la estructura del proyecto." | tee -a $log_file
           exit 1
         fi
+
+    - name: Subir log de validación
+      uses: actions/upload-artifact@v4
+      with:
+        name: log-validacion-formularios
+        path: logs/validacion_formularios.log
