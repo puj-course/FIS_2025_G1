@@ -20,16 +20,19 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Compilar con Maven
+    - name: Ver estructura del proyecto
+      run: ls -R
+
+    - name: Compilar proyecto Java (sin Maven)
       run: |
         mkdir -p out
-        javac -d out $(find Ecotributario/src -name "*.java")
-        
-    - name: Ejecutar procesamiento de datos 
+        javac -d out $(find . -name "*.java")
+
+    - name: Ejecutar procesamiento de datos
       run: |
         echo "Procesando normativa y formularios..."
         echo "Generando informe..."
-        mkdir -p ./reportes
+        mkdir -p reportes
         echo "Informe generado el $(date)" > reportes/informe.txt
         ls -l reportes
 
@@ -38,5 +41,3 @@ jobs:
       with:
         name: informe-final
         path: reportes/informe.txt
-
-        
