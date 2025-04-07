@@ -19,7 +19,4 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Compilar proyecto
-        run: javac -d out $(find src -name "*.java")
-
       # Aquí puedes agregar tests cuando los tengas
