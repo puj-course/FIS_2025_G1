@@ -88,7 +88,3 @@ Explicar de manera clara y estructurada cómo está compuesto el sistema **Ecotr
 - 📈 Panel visual con gráficas de impacto y reportes.
 - 📦 Integración con servicios en la nube para almacenamiento de evidencia multimedia.
 
----
-
-📁 Este archivo responde al **Issue #44**  
-📌 Rama sugerida: `docs/arquitectura-ecotributario`
