@@ -22,6 +22,10 @@ jobs:
 
     - name: Ver estructura del proyecto
       run: ls -R
+    - name: Inspeccionar contenido de src
+      run: |
+       echo "Contenido de src/:"
+       find src -type f -print
 
     - name: Compilar proyecto Java (sin Maven)
       run: |
