@@ -32,7 +32,7 @@ jobs:
         ls -l reportes
 
     - name: Subir artefactos del informe
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: informe-final
         path: reportes/informe.txt
