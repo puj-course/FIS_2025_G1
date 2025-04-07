@@ -2,7 +2,7 @@ name: Java CI - Ecotributario Pipeline
 
 on:
   push:
-    branches: [ "main" , "feature/interfaz-login"]
+    branches: [ "main", "feature/interfaz-login" ]
   pull_request:
     branches: [ "main", "feature/interfaz-login" ]
 
@@ -22,23 +22,25 @@ jobs:
 
     - name: Ver estructura del proyecto
       run: ls -R
-    - name: Inspeccionar contenido de src
+
+    - name: Confirmar archivos Java disponibles
       run: |
-       echo "Contenido de src/:"
-       find src -type f -print
+        echo "Contenido en src/:"
+        find src -type f -name "*.java" || echo "⚠️ No se encontraron archivos .java"
 
     - name: Compilar proyecto Java (sin Maven)
       run: |
         mkdir -p out
         java_files=$(find src/ecotributario -name "*.java")
         if [ -z "$java_files" ]; then
-          echo "No se encontraron archivos .java en src/"
+          echo "❌ No se encontraron archivos .java en src/ecotributario"
           exit 1
         else
-          echo " Archivos Java encontrados:"
+          echo "✅ Archivos Java encontrados:"
           echo "$java_files"
           javac -d out $java_files
         fi
+
     - name: Ejecutar procesamiento de datos
       run: |
         echo "Procesando normativa y formularios..."
