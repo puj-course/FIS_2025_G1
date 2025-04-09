@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="ecotributario.controllers.VerIncentivosController" prefWidth="500" prefHeight="400">
+    <children>
+        <VBox spacing="15" alignment="CENTER" AnchorPane.topAnchor="20.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+            <Label text="Incentivos Acumulados" style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <ListView fx:id="listaIncentivos" prefHeight="250" />
+
+            <Button text="Volver" onAction="#volverMenu" prefWidth="150" />
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="ecotributario.controllers.InicioController"
+            prefWidth="400" prefHeight="250">
+    <children>
+        <VBox spacing="20" alignment="CENTER"
+              AnchorPane.topAnchor="50.0"
+              AnchorPane.leftAnchor="50.0"
+              AnchorPane.rightAnchor="50.0">
+            <Label text="Bienvenido a Ecotributario" style="-fx-font-size: 18px;"/>
+            <Button text="Iniciar sesión" onAction="#abrirLogin" prefWidth="200"/>
+            <Button text="Registrarse" onAction="#abrirRegistro" prefWidth="200"/>
+        </VBox>
+    </children>
+</AnchorPane>
