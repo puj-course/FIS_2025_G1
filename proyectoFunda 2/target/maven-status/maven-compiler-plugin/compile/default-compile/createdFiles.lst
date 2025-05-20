@@ -1,0 +1,15 @@
+com\ecotributario\utils\TelegramBot.class
+com\ecotributario\controllers\LoginAdminController.class
+com\ecotributario\controllers\RegistrarEmpresaController.class
+com\ecotributario\controllers\RegistrarAdminController.class
+com\ecotributario\models\Solicitud.class
+com\ecotributario\controllers\RevisarSolicitudesController.class
+com\ecotributario\database\Conexion.class
+com\ecotributario\controllers\LoginEmpresaController.class
+com\ecotributario\controllers\InicioController.class
+com\ecotributario\controllers\HistorialSolicitudesController.class
+com\ecotributario\MainApp.class
+com\ecotributario\utils\SesionEmpresa.class
+com\ecotributario\controllers\CrearSolicitudController.class
+com\ecotributario\controllers\InicioAdministradorController.class
+com\ecotributario\controllers\InicioEmpresaController.class

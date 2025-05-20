@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.ecotributario.controllers.InicioEmpresaController"
+            style="-fx-background-color: #f4f4f4;">
+
+    <!-- Top: Botón cerrar sesión + logo -->
+    <top>
+        <VBox>
+            <HBox alignment="TOP_RIGHT" style="-fx-padding: 10 20 0 0;">
+                <Button text="Cerrar sesión"
+                        onAction="#onCerrarSesion"
+                        style="-fx-background-color: #00334e; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8;" />
+            </HBox>
+            <HBox alignment="CENTER" style="-fx-padding: 0 0 20 0;">
+                <ImageView fitHeight="80" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/logo_ecotributario.png" />
+                    </image>
+                </ImageView>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Center: Imagen grande + texto bienvenida + opciones -->
+    <center>
+        <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 20;">
+            <ImageView fitHeight="220" fitWidth="800">
+                <image>
+                    <Image url="@/images/empresa_oficina.png" />
+                </image>
+            </ImageView>
+
+            <VBox spacing="10" alignment="CENTER" maxWidth="800">
+                <Label text="Bienvenido a Ecotributario"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #333;" />
+                <Label wrapText="true"
+                       text="En Ecotributario, nos dedicamos a incentivar a las empresas a conservar y colaborar con la regeneración del planeta Tierra. Nuestra misión es crear un impacto positivo a través de tecnología avanzada y un enfoque centrado en el cliente."
+                       style="-fx-font-size: 14px; -fx-text-fill: #555;" maxWidth="800" />
+            </VBox>
+
+            <HBox spacing="30" alignment="CENTER">
+                <VBox alignment="CENTER" style="-fx-border-color: lightgray; -fx-padding: 10; -fx-background-color: white; -fx-border-radius: 5;">
+                    <Label text="Crear Solicitud" style="-fx-font-weight: bold; -fx-text-fill: #004e72;" />
+                    <Label text="Inicie una nueva solicitud para que nuestros administradores la analicen." wrapText="true" maxWidth="200" style="-fx-font-size: 12px;" />
+                    <Button text="Crear" onAction="#onCrearSolicitud" />
+                </VBox>
+
+                <VBox alignment="CENTER" style="-fx-border-color: lightgray; -fx-padding: 10; -fx-background-color: white; -fx-border-radius: 5;">
+                    <Label text="Ver clasificación" style="-fx-font-weight: bold; -fx-text-fill: #004e72;" />
+                    <Label text="Consulte el top 10 de empresas con más solicitudes aceptadas." wrapText="true" maxWidth="200" style="-fx-font-size: 12px;" />
+                    <Button text="Ranking" onAction="#onVerRanking" />
+                </VBox>
+
+                <VBox alignment="CENTER" style="-fx-border-color: lightgray; -fx-padding: 10; -fx-background-color: white; -fx-border-radius: 5;">
+                    <Label text="Ver Historial de Solicitudes" style="-fx-font-weight: bold; -fx-text-fill: #004e72;" />
+                    <Label text="Revise el historial de solicitudes realizadas para mantener un seguimiento de sus interacciones con nosotros." wrapText="true" maxWidth="200" style="-fx-font-size: 12px;" />
+                    <Button text="Historial" onAction="#onVerHistorial" />
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+
+    <!-- Bottom: Contacto -->
+    <bottom>
+        <HBox spacing="60" alignment="CENTER" style="-fx-padding: 20;">
+            <VBox>
+                <Label text="Contáctenos" style="-fx-font-weight: bold;" />
+                <Label text="Teléfono: +57 312 503 66 99" />
+                <Label text="Correo electrónico: juanparras@javeriana.edu.co" />
+            </VBox>
+            <VBox>
+                <Label text="Contáctenos" style="-fx-font-weight: bold;" />
+                <Label text="Teléfono: +57 321 227 66 73" />
+                <Label text="Correo electrónico: juans_rodriguezp@javeriana.edu.co" />
+            </VBox>
+            <VBox>
+                <Label text="Contáctenos" style="-fx-font-weight: bold;" />
+                <Label text="Teléfono: +57 311 271 57 29" />
+                <Label text="Correo electrónico: munozsara@javeriana.edu.co" />
+            </VBox>
+        </HBox>
+    </bottom>
+</BorderPane>

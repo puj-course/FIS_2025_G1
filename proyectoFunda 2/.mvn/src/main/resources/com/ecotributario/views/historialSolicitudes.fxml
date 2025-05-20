@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.ecotributario.controllers.HistorialSolicitudesController">
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #e2f1f8;" prefWidth="320">
+            <Label text="Solicitudes de Descuento" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+            <VBox fx:id="listaSolicitudes" spacing="8">
+                <!-- Las tarjetas se agregan dinámicamente desde el controlador -->
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox fx:id="panelDetalles" spacing="15" style="-fx-padding: 30; -fx-background-color: #ffffff;" visible="false">
+            <Label text="Detalles de solicitud" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #004e72;" />
+
+            <Label fx:id="lblEmpresa" text="Empresa: " />
+            <Label fx:id="lblImpacto" text="Impacto: " />
+            <Label fx:id="lblDescripcion" text="Descripción: " />
+            <Label fx:id="lblFecha" text="Fecha: " />
+
+            <Button text="Volver al panel" onAction="#onVolverAlPanel"
+                    style="-fx-background-color: #999; -fx-text-fill: white; -fx-font-weight: bold;" />
+        </VBox>
+    </center>
+
+</BorderPane>

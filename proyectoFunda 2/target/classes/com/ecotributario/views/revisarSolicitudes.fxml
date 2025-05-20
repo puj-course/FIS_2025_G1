@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.ecotributario.controllers.RevisarSolicitudesController">
+
+    <left>
+        <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: #e2f1f8;" prefWidth="320">
+            <Label text="Solicitudes de Descuento" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+            <VBox fx:id="listaSolicitudes" spacing="8"/>
+        </VBox>
+    </left>
+
+    <center>
+        <VBox fx:id="detallePane" spacing="15" style="-fx-padding: 30; -fx-background-color: #ffffff;" visible="false">
+            <Label text="Detalles de solicitud" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #004e72;" />
+
+            <Label fx:id="empresaLabel" text="Empresa: " />
+            <Label fx:id="impactoLabel" text="Impacto: " />
+            <Label fx:id="descripcionLabel" text="Descripción: " />
+            <Label fx:id="fechaLabel" text="Fecha: " />
+
+            <Label text="Agregar comentario" style="-fx-font-weight: bold;" />
+            <TextArea fx:id="comentarioField" prefRowCount="3" wrapText="true" />
+
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Aprobar"
+                        onAction="#onAprobar"
+                        style="-fx-background-color: #0077a6; -fx-text-fill: white; -fx-font-weight: bold;" />
+                <Button text="Rechazar"
+                        onAction="#onRechazar"
+                        style="-fx-background-color: #c0392b; -fx-text-fill: white; -fx-font-weight: bold;" />
+            </HBox>
+
+            <Button text="Volver al panel"
+                    onAction="#onVolver"
+                    style="-fx-background-color: #999; -fx-text-fill: white;" />
+        </VBox>
+    </center>
+
+</BorderPane>

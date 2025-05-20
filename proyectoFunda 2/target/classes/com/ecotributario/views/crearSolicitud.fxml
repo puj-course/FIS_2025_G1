@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.ecotributario.controllers.CrearSolicitudController">
+    <center>
+        <VBox spacing="20" alignment="TOP_CENTER" style="-fx-padding: 20;">
+            <HBox spacing="40" alignment="CENTER">
+
+                <!-- Columna izquierda -->
+                <VBox spacing="10" style="-fx-padding: 20; -fx-background-color: white; -fx-border-color: lightgray; -fx-background-radius: 10;">
+                    <Label text="Nombre de la empresa:"/>
+                    <TextField fx:id="nombreEmpresaField"/>
+
+                    <Label text="Dirección:"/>
+                    <TextField fx:id="direccionField"/>
+
+                    <Label text="Teléfono:"/>
+                    <TextField fx:id="telefonoField"/>
+
+                    <Label text="Descripción actividad ambiental:"/>
+                    <TextArea fx:id="descripcionActividadField" prefRowCount="3"/>
+
+                    <Label text="Ubicación exacta:"/>
+                    <TextField fx:id="ubicacionField"/>
+
+                    <Label text="Fecha de ejecución:"/>
+                    <TextField fx:id="fechaEjecucionField"/>
+
+                    <Label text="Tipo de actividad"/>
+                    <ComboBox fx:id="tipoActividadCombo" prefWidth="200"/>
+                </VBox>
+
+                <!-- Columna derecha -->
+                <VBox spacing="12" style="-fx-padding: 20; -fx-background-color: white; -fx-border-color: lightgray; -fx-background-radius: 10;">
+
+                    <Label text="¿Incluye biomecánica?"/>
+                    <HBox spacing="10">
+                        <ToggleButton text="Sí" fx:id="biomecanicaSi" style="-fx-background-color: #00A2E8; -fx-text-fill: white;"/>
+                        <ToggleButton text="No" fx:id="biomecanicaNo" style="-fx-background-color: #FF5C5C; -fx-text-fill: white;"/>
+                    </HBox>
+
+                    <Label text="¿Incluye predios para compensación?"/>
+                    <HBox spacing="10">
+                        <ToggleButton text="Sí" fx:id="prediosSi" style="-fx-background-color: #00A2E8; -fx-text-fill: white;"/>
+                        <ToggleButton text="No" fx:id="prediosNo" style="-fx-background-color: #FF5C5C; -fx-text-fill: white;"/>
+                    </HBox>
+
+                    <Label text="¿Incluye monitoreo y seguimiento ?"/>
+                    <HBox spacing="10">
+                        <ToggleButton text="Sí" fx:id="monitoreoSi" style="-fx-background-color: #00A2E8; -fx-text-fill: white;"/>
+                        <ToggleButton text="No" fx:id="monitoreoNo" style="-fx-background-color: #FF5C5C; -fx-text-fill: white;"/>
+                    </HBox>
+
+                    <Label text="Impactos positivos:" style="-fx-font-weight: bold;"/>
+                    <Label text="Reducción de emisiones de (Co2):"/>
+                    <TextField fx:id="reduccionEmisionesField"/>
+
+                    <Label text="Reducción del agua:"/>
+                    <TextField fx:id="reduccionAguaField"/>
+
+                    <Label text="Aumento de cobertura vegetal:"/>
+                    <TextField fx:id="coberturaVegetalField"/>
+
+                    <Label text="Otros impactos:"/>
+                    <TextField fx:id="otrosImpactosField"/>
+
+                    <Label text="Valor de inversión ($):" style="-fx-font-weight: bold;"/>
+                    <TextField fx:id="valorInversionField"/>
+
+                    <!-- NUEVO CAMPO: Telegram Chat ID -->
+                    <Label text="Telegram Chat ID:"/>
+                    <TextField fx:id="telegramIdField" promptText="Ingresa tu chat ID de Telegram" />
+
+                    <HBox spacing="15" alignment="CENTER">
+                        <Button fx:id="btnEnviar" text="Enviar solicitud" onAction="#onEnviarSolicitud"
+                                style="-fx-background-color: #00A2E8; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                        <Button fx:id="btnVolver" text="Volver" onAction="#onVolverAlInicioEmpresa"
+                                style="-fx-background-color: #FF5C5C; -fx-text-fill: white; -fx-font-weight: bold;"/>
+                    </HBox>
+                </VBox>
+
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
