@@ -1,20 +1,20 @@
-# 📊 Reporte de Métricas de Calidad del Código (Simulación tipo SonarQube)
+# Reporte de Métricas de Calidad del Código (Simulación tipo SonarQube)
 
 Este reporte fue generado manualmente a partir del análisis del código fuente y pruebas del proyecto **Ecotributario**.
 
 ---
 
-## 🧮 Resumen General
+## Resumen General
 
 - **Total de clases de producción**: 58
 - **Total de clases de prueba**: 29
-- ✅ **Clases con prueba unitaria**: 29
-- ❌ **Clases sin prueba unitaria**: 29
-- 📉 **Cobertura de clases**: 50.0%
+-  **Clases con prueba unitaria**: 29
+-  **Clases sin prueba unitaria**: 29
+-  **Cobertura de clases**: 50.0%
 
 ---
 
-## 📄 Análisis de Tamaño y Complejidad por Clase
+## Análisis de Tamaño y Complejidad por Clase
 
 - Se analizaron todas las clases `.java` de producción y prueba.
 - Se midieron:
@@ -27,7 +27,7 @@ Este reporte fue generado manualmente a partir del análisis del código fuente 
 
 ---
 
-## 🧪 Observaciones clave
+## Observaciones clave
 
 - Muchos archivos de prueba **no invocan métodos reales** o no están conectados con clases de producción (solo 2/58 clases cubiertas).
 - Hay métodos con promedios superiores a **15 líneas**, lo que puede indicar oportunidad de **refactorización**.
@@ -35,7 +35,7 @@ Este reporte fue generado manualmente a partir del análisis del código fuente 
 
 ---
 
-## ✅ Recomendaciones
+## Recomendaciones
 
 - Aumentar cobertura unitaria priorizando clases con mayor número de líneas efectivas.
 - Dividir métodos largos (>15 líneas promedio).
