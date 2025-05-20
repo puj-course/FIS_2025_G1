@@ -43,4 +43,27 @@ Este reporte fue generado manualmente a partir del análisis del código fuente 
 
 ---
 
+# Métricas del Código Fuente
+
+Este análisis corresponde al proyecto contenido en el archivo `proyectoFunda 3.zip`. Se calcularon dos métricas básicas de calidad del código: la longitud del código y la complejidad ciclomatica.
+
+## Resumen General
+
+| Métrica                    | Valor |
+|----------------------------|-------|
+| Líneas de código (LOC)  | 1.987 |
+|  Complejidad ciclomatica | 144   |
+
+##  Explicación
+
+- **Líneas de Código (LOC)**: Se refiere al total de líneas presentes en los archivos `.java`, incluyendo líneas de declaración, lógica, y estructura. Este número puede incluir comentarios y líneas en blanco si no se filtran explícitamente.
+
+- **Complejidad Ciclomática**: Mide la cantidad de caminos lógicos independientes que existen en el código. Se calculó sumando puntos de decisión (estructuras como `if`, `for`, `while`, `case`, etc.) y agregando 1. Un valor más alto indica mayor complejidad, lo que puede implicar mayor esfuerzo para pruebas y mantenimiento.
+
+##  Observaciones
+
+- Un proyecto con una complejidad ciclomatica de **144** sugiere que tiene muchos puntos de decisión, por lo tanto sería recomendable asegurar una buena cobertura de pruebas.
+- La cantidad de **1.987 líneas de código** indica un tamaño mediano, lo que indica un proyecto bien estructurado con lógica en capas.
+
+
 *Este reporte fue generado automáticamente desde archivos fuente sin SonarQube usando Python.*
